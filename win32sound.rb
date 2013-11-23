@@ -3,14 +3,11 @@
 
 require_if_exist 'win32/sound'
 
-Module.new do
+Plugin.create :win32sound do
 
-  if defined?(Win32::Sound)
-    Plugin::create(:win32sound).add_event(:play_sound){ |filename, &stop|
-      Win32::Sound.play(filename, Win32::Sound::ASYNC)
-      stop.call
-    }
+  win32_sound_defined = defined?(Win32::Sound)
+  defsound :win32sound, "Win32API" do |filename|
+    Win32::Sound.play(filename, Win32::Sound::ASYNC) if FileTest.exist?(filename) and win32_sound_defined
   end
 
 end
-

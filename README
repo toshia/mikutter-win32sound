@@ -1,2 +1,8 @@
 Windowsでmikutterのサウンドを鳴らすためのプラグインだよ☆
 動くかどうかは知らないよ！
+
+2013/10/22
+mikutter 0.2.2.1373に対応したよ☆
+設定のサウンドの項目から、Win32APIを選択してね!
+
+modified by orumin
